@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;450;500;550;600;650;700;750;800&display=swap');
+@import "tailwindcss";
+@import './styles/base.css';
+@import './styles/pages.css';
+@import './styles/modals.css';
+@import './styles/responsive.css';
+@import './styles/patient.css';
+@import './styles/lava.css';
+@import './styles/neuroplay.css';
+@import './styles/questionnaires.css';
+@import './styles/doctor.css';
+@import './styles/medication.css';
+@import './styles/account.css';
+
+@import './styles/clinical.css';
+
+@import './styles/overview.css';
+
+@import './styles/chat.css';
+
+@import './styles/redesign.css';
+
+@import './styles/concept.css';

@@ -1,0 +1,89 @@
+.account-page { display: grid; place-items: center; min-height: 100dvh; padding: 24px; color: #eaf4f9; background: radial-gradient(circle at 50% 10%, #466e8c66, transparent 40%), #151d27; }
+.account-card { display: grid; gap: 17px; width: min(100%, 430px); padding: clamp(24px, 5vw, 38px); border: 1px solid #afd4e34a; border-radius: 24px; background: linear-gradient(145deg, #273949, #1c2935); box-shadow: 0 26px 80px #07111a7a; }
+.account-card h1 { font-size: clamp(var(--font-4xl), 6vw, var(--font-7xl)); font-weight: 550; letter-spacing: -.05em; }
+.account-card > p { color: #b4cbd7; font-size: var(--font-xs); line-height: 1.6; }
+.account-card label { display: grid; gap: 7px; color: #c9dce7; font-size: var(--font-xs); }
+.account-card input { min-height: 46px; padding: 11px 13px; border: 1px solid #b0d2e359; border-radius: 11px; color: #f1f9fc; background: #13212e; outline: none; }
+.account-card input:focus-visible { outline: 2px solid #b8e4ef; outline-offset: 2px; }
+.account-card small { color: #92aebe; font-size: var(--font-xs); }
+.account-card .primary-button { justify-content: center; min-height: 47px; margin-top: 3px; }
+.account-link { color: #bfdae6; font-size: var(--font-xs); text-decoration: underline; text-underline-offset: 3px; }
+.account-error { color: #ffd6cd !important; }
+.sync-error { position: fixed; z-index: 200; right: 16px; bottom: 16px; width: min(420px, calc(100vw - 32px)); padding: 14px 17px; border: 1px solid #e9ac91; border-radius: 12px; color: #ffe3d7; background: #51372f; font-size: var(--font-xs); box-shadow: 0 15px 35px #0006; }
+.account-settings { margin-top: 28px; padding: 22px; border: 1px solid #a9cad83d; border-radius: 18px; color: #dcecf4; background: #243543; }
+.account-settings h2 { font-size: var(--font-lg); font-weight: 550; }
+.account-settings p { margin: 8px 0 15px; color: #a9bdca; font-size: var(--font-xs); }
+.account-settings button { padding: 10px 16px; border: 1px solid #b8d6e454; border-radius: 999px; color: #e6f3f8; font-size: var(--font-xs); }
+.account-settings a { display: inline-flex; padding: 10px 16px; margin-right: 10px; border-radius: 999px; color: #172838; background: #c4e2ef; font-size: var(--font-xs); text-decoration: none; }
+.care-page { align-items: start; }
+.care-connect { width: min(100%, 620px); margin: 18px auto; }
+.care-back { display: inline-flex; align-items: center; gap: 8px; width: fit-content; color: #c9e4ef; font-size: var(--font-xs); text-decoration: none; }
+.care-code-form { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; }
+.care-code-form label { min-width: 0; }
+.care-code-form .primary-button { white-space: nowrap; }
+.care-confirm { display: grid; gap: 12px; padding: 22px; border: 1px solid #b8d6e454; border-radius: 18px; background: #172a39; }
+.care-confirm > svg { color: #c5e6ef; }
+.care-confirm h2, .care-list h2 { font-size: var(--font-xl); font-weight: 550; }
+.care-confirm p { font-size: var(--font-xs); color: #c0d4df; }
+.care-confirm .primary-button { width: fit-content; }
+.care-error { color: #ffd6cd !important; font-size: var(--font-xs); }
+.care-success { color: #ccefdc !important; font-size: var(--font-xs); }
+.care-panel { display: grid; justify-items: start; gap: 15px; margin-bottom: 34px; }
+.care-panel-head { display: flex; gap: 13px; align-items: center; }
+.care-panel-head h2 { margin-top: 5px; font-size: var(--font-2xl); font-weight: 550; }
+.care-panel > p { max-width: 650px; color: #aebdca; font-size: var(--font-xs); line-height: 1.6; }
+.care-invite { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; width: 100%; padding: 20px; border: 1px solid #b6d9e553; border-radius: 17px; background: #142633; }
+.care-invite > div:first-child { display: grid; gap: 10px; min-width: 0; }
+.care-invite span { color: #9fb7c8; font-size: var(--font-xs); letter-spacing: .15em; }
+.care-invite strong { overflow-wrap: anywhere; color: #e9f8fc; font-size: clamp(var(--font-lg), 5vw, var(--font-3xl)); letter-spacing: .08em; }
+.care-invite small, .care-person small { color: #9fb5c4; font-size: var(--font-xs); }
+.care-local-note { max-width: 370px; line-height: 1.5; }
+.care-invite button, .care-person button, .care-person a { display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 9px 13px; border: 1px solid #b8d6e454; border-radius: 999px; color: #e6f3f8; font-size: var(--font-xs); text-decoration: none; }
+.care-qr { padding: 9px; border-radius: 13px; background: white; }
+.care-list { display: grid; gap: 10px; width: 100%; margin-top: 10px; }
+.care-list h3 { color: #e2f0f6; font-size: var(--font-md); font-weight: 550; }
+.care-person { display: flex; align-items: center; gap: 12px; padding: 13px; border: 1px solid #b8d6e432; border-radius: 13px; }
+.care-person > div { display: grid; flex: 1; min-width: 0; gap: 4px; }
+.care-person strong { overflow-wrap: anywhere; color: #e6f2f6; font-size: var(--font-xs); font-weight: 550; }
+.care-person a { white-space: nowrap; }
+.care-linked .care-medication { width: min(100% - 32px, 820px); margin: 0 auto 50px; padding: 25px; border: 1px solid #b8d6e454; border-radius: 20px; color: #eaf4f9; background: #253645; }
+.care-medication h2 { font-size: var(--font-xl); }
+.care-medication p { margin: 8px 0 15px; color: #aebdca; font-size: var(--font-xs); }
+.care-medication > div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #b8d6e42b; font-size: var(--font-xs); }
+@media (max-width: 620px) { .care-code-form { grid-template-columns: 1fr; } .care-person { flex-wrap: wrap; } .care-person > div { flex-basis: 100%; } }
+
+/* Login / register: split card on desktop, centred column on phones. */
+.account-page{padding:32px 24px;background:radial-gradient(ellipse at 30% 40%,#1d4a7a40,transparent 55%),radial-gradient(ellipse at 80% 0%,#2f5a7533,transparent 60%),#0b1f2e}
+.account-shell{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;width:min(100%,1160px);padding:20px;border:1px solid #9cc6dc2b;border-radius:28px;background:linear-gradient(150deg,#10293bcc,#0c2232e6);box-shadow:0 30px 80px #0007}
+.account-visual{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:620px;padding:36px 40px 48px;overflow:hidden;border-radius:22px;background:radial-gradient(circle at 45% 42%,#2a6fd033,transparent 55%)}
+.account-visual-star{position:relative!important;flex:1;align-self:center;width:min(100%,420px)!important;height:auto!important;max-height:400px;margin:12px 0 28px;opacity:.95;pointer-events:none}
+.account-visual-copy{position:relative}
+.account-visual-copy h2{margin:0 0 14px;font-size:clamp(30px,3vw,40px);font-weight:600;letter-spacing:-.02em;color:#f2f8fc}
+.account-visual-copy p{max-width:380px;font-size:19px;line-height:1.5;color:#8fc4ec}
+.account-brand{position:relative;display:inline-flex;align-items:center;gap:12px;color:#e8f4fb;font-size:20px;font-weight:500;letter-spacing:.06em}
+.account-brand svg{width:26px;height:30px;color:#a3def9}
+.account-shell .account-card{align-content:center;gap:20px;width:100%;padding:44px 48px;border:1px solid #9cc6dc33;border-radius:22px;background:linear-gradient(160deg,#1a3d55e6,#13314a)}
+.account-card-star{display:none!important}
+.account-title h1{margin:0;font-size:clamp(30px,3vw,38px)!important;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+.account-title p{margin-top:8px;color:#a9c8dc;font-size:17px}
+.account-card label{gap:9px;font-size:15px}
+.account-field{position:relative;display:flex;align-items:center}
+.account-field>svg{position:absolute;left:16px;color:#9fbfd3;pointer-events:none}
+.account-card .account-field input{width:100%;min-height:52px;padding:12px 48px;border-radius:12px;background:#0f1d29;border-color:#a9cde03d;font-size:16px}
+.account-eye{position:absolute;right:8px;display:grid;place-items:center;width:38px;height:38px;border-radius:10px;color:#9fbfd3}
+.account-eye:hover{color:#dff1fb;background:#ffffff12}
+.account-shell .account-card .primary-button{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;margin-top:6px;border-radius:14px;font-size:17px}
+.account-switch{text-align:center;color:#b4cbd7;font-size:15px}
+.account-switch button{color:#a3def9;font-weight:650}
+.account-switch button:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:860px){
+.account-page{padding:20px 16px;place-items:start center}
+.account-shell{display:block;padding:0;border:0;background:none;box-shadow:none;width:min(100%,440px)}
+.account-visual{display:none}
+.account-shell .account-card{gap:16px;padding:28px 4px 24px;border:0;background:none;box-shadow:none;text-align:left}
+.account-card>.account-brand{justify-self:center;font-size:18px}
+.account-card-star{display:block!important;justify-self:center;width:170px!important;height:170px!important;margin:-4px 0 -10px}
+.account-title{text-align:center}
+.account-title h1{font-size:30px!important}
+.account-title p{font-size:16px}
+}

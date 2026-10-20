@@ -1,0 +1,26 @@
+# dependencies & build
+node_modules/
+dist/
+test-results/
+playwright-report/
+
+# secrets & local env
+.env
+.env.local
+.env.*.local
+
+# runtime data, logs, backups, evidence (never publish)
+server/data/
+server-go/bin/
+server-go/private/
+server-go/logs/
+server-go/reports/
+server-go/backups/
+server-go/backups-*/
+*.log
+*.sqlite3
+*.sqlite3-*
+*.dump
+
+# internal notes
+ТЗ_передача_бэкенда_Go.md

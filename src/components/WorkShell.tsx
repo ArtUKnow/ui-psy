@@ -1,0 +1,12 @@
+import {useState,type ReactNode} from 'react';
+import {BriefcaseBusiness,ChartNoAxesColumnIncreasing,Heart,Home,NotebookText,Settings} from './icons';
+import {ConceptMark} from './ContourField';
+import {useSession} from '../lib/Session';
+const links=[['/app','Главная',Home],['/app?section=diary','Дневник',NotebookText],['/app?section=assistant','Я рядом',Heart],['/app?section=tests','Тесты',ChartNoAxesColumnIncreasing],['/doctor','Работа',BriefcaseBusiness],['/app?section=settings','Настройки',Settings]] as const;
+export default function WorkShell({children}:{children:ReactNode}){
+ return <div className="app-shell work-shell" data-section="work"><aside className="sidebar"><a className="brand" href="/app"><ConceptMark/><span>UI-PSY</span></a><nav className="desktop-nav" aria-label="Главная навигация">{links.map(([url,label,Icon])=><a key={url} href={url} className={url==='/doctor'?'active':''} aria-current={url==='/doctor'?'page':undefined}><Icon size={22}/><span>{label}</span></a>)}</nav><a className="work-personal-link" href="/app">Личное пространство</a></aside><div className="work-shell-main"><header className="work-mobile-brand"><a className="brand" href="/app"><ConceptMark/><span>UI-PSY</span></a><a href="/doctor?tab=profile" aria-label="Профиль специалиста"><BriefcaseBusiness size={20}/></a></header>{children}</div><nav className="mobile-nav work-nav" aria-label="Навигация приложения">{links.map(([url,label,Icon])=><a key={url} href={url} className={url==='/doctor'?'active':''} aria-current={url==='/doctor'?'page':undefined}><Icon size={22}/><span>{label}</span></a>)}</nav></div>;
+}
+export function RoleSettings(){
+ const {user,setRole,showAccount}=useSession();const [error,setError]=useState(''),[busy,setBusy]=useState(false);
+ return <section className="account-settings role-settings"><h2>{user?.role==='doctor'?'Профиль специалиста':'Работа со своими пациентами'}</h2><p>{user?.role==='doctor'?'Рабочий кабинет и личное пространство доступны в одном аккаунте.':'Для врачей и психологов есть раздел с пациентами, назначениями и приглашениями по QR-коду.'}</p>{user?.role==='doctor'?<a className="secondary-button" href="/doctor">Открыть «Работу»</a>:<button className="secondary-button" disabled={busy} onClick={()=>{if(!user){showAccount();return;}setBusy(true);setError('');void setRole('doctor').catch(e=>setError(e instanceof Error?e.message:'Не удалось сохранить роль')).finally(()=>setBusy(false));}}>Я врач или психолог</button>}{error&&<p role="alert">{error}</p>}</section>;
+}

@@ -1,0 +1,27 @@
+.medication-tracker { margin-top: 28px; padding: 23px 25px; border: 1px solid #a7c7d63d; border-radius: 22px; background: radial-gradient(circle at 87% 0%, #759dbc24, transparent 36%), linear-gradient(145deg, #253746, #1e2b39); }
+.medication-heading { display: flex; align-items: center; gap: 12px; }
+.medication-icon { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid #b3d8e961; border-radius: 12px; color: #c4e4f0; }
+.medication-heading .eyebrow { color: #a6c5d5; font-size: var(--font-xs); letter-spacing: .12em; }
+.medication-heading h2 { margin: 2px 0 0; color: #edf7fb; font-size: var(--font-lg); font-weight: 550; }
+.medication-intro { max-width: 550px; margin: 10px 0 20px; color: #b3c5cf; font-size: var(--font-xs); line-height: 1.6; }
+.medication-week { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px; min-height: 103px; padding: 12px 14px; border: 1px solid #bdd5e523; border-radius: 16px; background: #111e2a5c; }
+.medication-day { display: grid; grid-template-rows: 1fr auto auto; justify-items: center; gap: 3px; min-width: 0; color: #b9ceda; font-size: var(--font-xs); }
+.medication-day small { color: #788f9e; font-size: var(--font-xs); }
+.medication-bar { display: flex; align-items: flex-end; width: min(100%, 38px); height: 56px; border-radius: 10px; background: #d4e8f011; overflow: hidden; }
+.medication-bar > span { width: 100%; border-radius: 10px; background: #a8c5d032; transition: height .3s ease; }
+.medication-bar > span.filled { background: linear-gradient(0deg, #72a9c9, #c4e9ee); box-shadow: 0 0 18px #a3dbe875; }
+.medication-slots { display: grid; gap: 7px; margin-top: 15px; }
+.medication-slot { display: flex; align-items: center; gap: 10px; min-width: 0; color: #e5f0f4; font-size: var(--font-xs); }
+.medication-time { color: #b9dbe8; font-variant-numeric: tabular-nums; }
+.medication-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.medication-slot button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bad8e33d; border-radius: 10px; min-height: 32px; padding: 0 9px; color: #d3e9ef; background: #93bac41a; font-size: var(--font-xs); }
+.medication-slot button.taken { color: #152f3a; background: #bce6e6; }
+.medication-slot button.medication-remove { width: 32px; padding: 0; color: #a3b4bc; background: transparent; }
+.medication-form { display: flex; gap: 9px; margin-top: 15px; }
+.medication-form label { display: grid; gap: 5px; min-width: 0; flex: 1; color: #a8bdca; font-size: var(--font-xs); }
+.medication-form label:nth-child(2) { flex: 0 0 105px; }
+.medication-form input { width: 100%; min-height: 37px; border: 1px solid #b8d2df3a; border-radius: 10px; padding: 0 10px; color: #e6f2f7; background: #12202b; outline: none; font-size: var(--font-xs); }
+.medication-form input:focus-visible, .medication-tracker button:focus-visible { outline: 2px solid #a9d7e9; outline-offset: 2px; }
+.medication-form > button { align-self: end; display: grid; place-items: center; width: 38px; height: 37px; flex: 0 0 38px; border-radius: 10px; color: #203440; background: #bbdfea; }
+.medication-error { margin-top: 9px; color: #f4bfbe; font-size: var(--font-xs); }
+@media (max-width: 760px) { .medication-tracker { margin-top: 23px; padding: 18px; } .medication-week { gap: 5px; padding: 10px 8px; } .medication-slot { flex-wrap: wrap; } }

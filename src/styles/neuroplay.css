@@ -1,0 +1,20 @@
+.neuroplay-page { min-height: 100dvh; padding: 20px 16px 40px; color: #e9f5fc; background: radial-gradient(ellipse 70% 55% at 30% 35%, #1e5065 0%, #142837 55%, #0c1b28 100%); }
+.neuroplay-back { display: inline-flex; align-items: center; gap: 6px; color: #bbd3e3; }
+.neuroplay-hero { display: grid; gap: 8px; max-width: 1080px; margin: 0 auto; align-items: center; }
+.neuroplay-photo { position: relative; display: grid; place-items: center; }
+.neuroplay-photo::before { content: ''; position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #80dbea55 0%, #337ab61f 45%, transparent 70%); filter: blur(8px); }
+.neuroplay-photo img { position: relative; width: min(100%, 420px); height: auto; filter: drop-shadow(0 28px 40px #04111c99); }
+.neuroplay-copy { display: grid; gap: 14px; }
+.neuroplay-eyebrow { font-size: var(--font-xs); font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: #80dbea; }
+.neuroplay-copy h1 { margin: 0; font-size: clamp(26px, 8.4vw, 56px); white-space: nowrap; letter-spacing: -1px; line-height: 1.05; }
+.neuroplay-copy > p { margin: 0; color: #bbd3e3; line-height: 1.5; }
+.neuroplay-live { display: grid; gap: 12px; margin-top: 6px; }
+.neuroplay-live .clinical-direct-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.neuroplay-connect { width: 100%; min-height: 58px; font-size: var(--font-lg); font-weight: 700; border-radius: 18px; background: linear-gradient(135deg, #b9f3ff, #80dbea); color: #0f2b3d; box-shadow: 0 14px 30px #80dbea33; }
+.neuroplay-connect:disabled { opacity: .7; }
+.neuroplay-live [role="status"] { margin: 0; color: #bbd3e3; font-size: var(--font-sm); }
+@media (min-width: 860px) {
+  .neuroplay-page { padding: 32px 40px 56px; }
+  .neuroplay-hero { grid-template-columns: 1.05fr 1fr; gap: 40px; min-height: calc(100dvh - 120px); }
+  .neuroplay-photo img { width: min(100%, 520px); }
+}

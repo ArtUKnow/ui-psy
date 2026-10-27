@@ -1,0 +1,42 @@
+import { expect, request, test } from '@playwright/test';
+import { mkdir, writeFile } from 'node:fs/promises';
+
+test('Go backend: account, persisted diary and GigaChat settings', async ({ page, baseURL }, info) => {
+  const email = `go-ui-${crypto.randomUUID()}@example.test`;
+  const password = 'synthetic-go-ui-password-2026';
+  // Separate API context: page.request shares the browser cookie jar and would skip the real login form.
+  const api = await request.newContext({ baseURL });
+  const created = await api.post('/api/auth/register', { data: { email, password } });
+  expect(created.status()).toBe(200);
+  await api.dispose();
+  await page.goto('/app');
+  await page.getByLabel('Электронная почта').fill(email);
+  await page.getByRole('textbox', { name: 'Пароль' }).fill(password);
+  await page.getByRole('button', { name: 'Войти', exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Привет, Пользователь' })).toBeVisible();
+  let actions = 0;
+  const start = performance.now();
+  await page.getByRole('button', { name: 'Отметить настроение', exact: true }).click(); actions++;
+  await page.getByRole('button', { name: 'Начнём', exact: true }).click(); actions++;
+  await page.getByLabel('Настроение от 1 до 10').fill('8'); actions++;
+  await page.getByRole('button', { name: 'Далее', exact: true }).click(); actions++;
+  await page.getByRole('button', { name: 'Далее', exact: true }).click(); actions++;
+  await page.getByRole('button', { name: 'Далее', exact: true }).click(); actions++;
+  await page.getByLabel('Пара слов для себя').fill('Синтетическая запись для проверки Go'); actions++;
+  await page.getByRole('button', { name: 'Сохранить момент', exact: true }).click(); actions++;
+  await expect(page.getByRole('heading', { name: 'Запись сохранена' })).toBeVisible();
+  const seconds = (performance.now() - start) / 1000;
+  const bounds = await page.evaluate(() => ({ width: innerWidth, overflow: document.documentElement.scrollWidth - innerWidth }));
+  expect(bounds.overflow).toBeLessThanOrEqual(1);
+  await page.getByRole('button', { name: 'Заглянуть в дневник' }).click();
+  await expect(page.getByText('Синтетическая запись для проверки Go', { exact: true }).first()).toBeVisible();
+  await page.reload();
+  await expect(page.getByText('Синтетическая запись для проверки Go', { exact: true }).first()).toBeVisible();
+  await page.getByRole('navigation', { name: 'Навигация приложения' }).getByRole('button', { name: 'Я рядом', exact: true }).click();
+  await page.getByRole('button', { name: 'GigaChat', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Помощник GigaChat' })).toBeVisible();
+  await expect(page.getByText('GigaChat пока не настроен администратором.')).toBeVisible();
+  await page.screenshot({ path: `server-go/reports/browser-artifacts/${info.project.name}-gigachat.png`, fullPage: true });
+  await mkdir('server-go/reports/ux', { recursive: true });
+  await writeFile(`server-go/reports/ux/${info.project.name}.json`, JSON.stringify({ automated: true, humanStudy: false, seconds, actions, browser: info.project.name, viewport: page.viewportSize(), ...bounds, scope: 'automated minimal authenticated diary entry, including server confirmation and reload persistence; not 10-person UX study' }, null, 2));
+});
